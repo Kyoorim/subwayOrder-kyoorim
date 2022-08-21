@@ -30,7 +30,6 @@ const AvailableMenu = () => {
           price: responseData[key].price,
         });
       }
-      console.log(loadedMenu); // 잘 찍힘
 
       setMenu(loadedMenu);
       setIsLoading(false);
@@ -78,7 +77,9 @@ const AvailableMenu = () => {
               calory={menu.calory}
               price={menu.price}
             >
-              {menu.name} {menu.price} {menu.calory}
+              <h2>{menu.name}</h2>
+              <h4>{menu.price} 원</h4>
+              <h4>{menu.calory} kcal</h4>
             </li>
           ))}
         </ul>
