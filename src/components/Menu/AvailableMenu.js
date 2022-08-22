@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+import MenuItem from "./MenuItem";
 import Card from "../UI/Card";
 
 import classes from "./AvailableMenu.module.css";
@@ -57,32 +58,20 @@ const AvailableMenu = () => {
     );
   }
 
-  //   const menuList = menu.map((menu) => return (
-  //     <li
-  //       key={menu.id}
-  //       name={menu.name}
-  //       calory={menu.calory}
-  //       price={menu.price}
-  //     ></li>;
-  //   ));
+  const menuList = menu.map((menu) => (
+    <MenuItem
+      key={menu.id}
+      id={menu.id}
+      name={menu.name}
+      calory={menu.calory}
+      price={menu.price}
+    />
+  ));
 
   return (
     <section className={classes.meals}>
       <Card>
-        <ul>
-          {menu.map((menu) => (
-            <li
-              key={menu.id}
-              name={menu.name}
-              calory={menu.calory}
-              price={menu.price}
-            >
-              <h2>{menu.name}</h2>
-              <h4>{menu.price} 원</h4>
-              <h4>{menu.calory} kcal</h4>
-            </li>
-          ))}
-        </ul>
+        <ul>{menuList}</ul>
       </Card>
     </section>
   );
