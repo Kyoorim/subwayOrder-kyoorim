@@ -10,8 +10,8 @@ const MenuItemForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const enteredAmount = amountInputRef.current.value;
-    const enteredAmountNumber = +enteredAmount;
+    const enteredAmount = amountInputRef.current.value; // 결과: string
+    const enteredAmountNumber = +enteredAmount; // 결과: number
 
     if (
       enteredAmount.trim().length === 0 ||
@@ -38,6 +38,7 @@ const MenuItemForm = (props) => {
         }}
       />
       <button>+ Add</button>
+      {!amountIsValid && <p>Please enter a valid amount</p>}
     </form>
   );
 };
